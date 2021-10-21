@@ -9,7 +9,7 @@ const App: React.FC = () => {
   const { login } = useSelector<AppRootStateType, InitialStateType>(state => state.auth);
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/auth-react-test">
       <Route exact path='/profile' render={ () => login ? <Profile /> : <Redirect to={'/'} /> } />
       <Route exact path='/' render={ () => <Auth /> } />
     </BrowserRouter>
