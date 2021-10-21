@@ -1,26 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Auth from "./components/Auth/Auth";
+import { BrowserRouter, Route, Redirect } from "react-router-dom";
+import Profile from "./components/Profile/Profile";
+import { useSelector } from "react-redux";
+import { AppRootStateType } from "./Redux/store";
+import { InitialStateType } from "./Redux/auth-reduser";
 
-function App() {
+const App: React.FC = () => {
+  const { login } = useSelector<AppRootStateType, InitialStateType>(state => state.auth);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Route exact path='/profile' render={ () => login ? <Profile /> : <Redirect to={'/'} /> } />
+      <Route exact path='/' render={ () => <Auth /> } />
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
