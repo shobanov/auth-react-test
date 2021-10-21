@@ -13,14 +13,12 @@ function Auth() {
   const history = useHistory();
   const dispatch = useDispatch();
 
-  const checkAuth = useMemo(() => {
-    return LOGIN === login && PASS === password;
-  }, [login, password]);
+  const isAuth = LOGIN === login && PASS === password;
 
   const onSubmitButtonHandler = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (checkAuth) {
+    if (isAuth) {
       dispatch(setLoginAC(login));
       history.push('/profile');
     };
@@ -58,7 +56,7 @@ function Auth() {
             />
           </div>
           <div className={styles.buttonForm}>
-            <button disabled={!checkAuth} type="submit">Войти</button>
+            <button disabled={!isAuth} type="submit">Войти</button>
           </div>
         </form>
       </div>
