@@ -6,6 +6,6 @@ import styles from './Profile.module.css';
 const Profile: React.FC = () => {
   const { login } = useSelector<AppRootStateType, InitialStateType>(state => state.auth);
   return <h2 className={styles.login}>Hello, {login}</h2>;
-}
+};
 
 export default Profile;
