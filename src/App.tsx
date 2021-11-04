@@ -6,8 +6,8 @@ const App: React.FC = () => {
 
   return (
     <>
-      <Route exact path='/'>
-        <Redirect to='auth'/>
+      <Route path='/'>
+        <Redirect to='/auth'/>
       </Route>
       <Switch>
         <Route path='/auth'>
