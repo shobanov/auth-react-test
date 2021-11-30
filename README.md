@@ -1,5 +1,5 @@
 # auth-react-test
-[Demo](https://shobanov.github.io/auth-react-test/)
+[Demo](https://shobanov.github.io/auth-react-test/) :point_left:
 
 ## Тестовое задание
 
